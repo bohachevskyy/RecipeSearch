@@ -12,9 +12,9 @@ final class RecipeSearchViewModel {
     enum State {
         case empty
         case loading
-        case data(recepies: [FindRecipeModel])
+        case data(recepies: [RecipeSearchModel])
         
-        var data: [FindRecipeModel] {
+        var data: [RecipeSearchModel] {
             switch self {
             case .data(let recepies):
                 return recepies
@@ -36,7 +36,7 @@ final class RecipeSearchViewModel {
     
     let searchService: RecipeService
     
-    var onSelection: ((FindRecipeModel) -> ())?
+    var onSelection: ((RecipeSearchModel) -> ())?
     var onError: ((String) -> ())?
     var onStateChange: ((State) -> ())?
     

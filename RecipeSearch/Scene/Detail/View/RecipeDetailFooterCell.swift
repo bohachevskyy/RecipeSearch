@@ -17,7 +17,7 @@ class RecipeDetailFooterCell: UITableViewCell, ReusableCell {
     var onInstructionsTap: CompletionBlock?
     var onOriginalTap: CompletionBlock?
     
-    func fillWithModel(_ model: FindRecipeModel) {
+    func fillWithModel(_ model: RecipeSearchModel) {
         publisherLabel.text = model.publisher
         scoreLabel.text = String(format: "Score rank: %.1f", model.socialRank)
     }

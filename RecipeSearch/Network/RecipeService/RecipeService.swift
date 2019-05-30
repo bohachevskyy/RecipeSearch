@@ -9,6 +9,6 @@
 import Foundation
 
 protocol RecipeService {
-    func findRecipe(keyword: String, page: Int, completion: @escaping (Result<[FindRecipeModel], Error>) -> ())
+    func findRecipe(keyword: String, page: Int, completion: @escaping (Result<[RecipeSearchModel], Error>) -> ())
     func getRecipeDetail(id: String, completion: @escaping (Result<RecipeDetailModel, Error>) -> ())
 }

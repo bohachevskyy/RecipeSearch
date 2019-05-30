@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FindRecipeModel: Codable {
+struct RecipeSearchModel: Codable {
     let imageURL: String
     let sourceURL: String
     let f2fURL: String

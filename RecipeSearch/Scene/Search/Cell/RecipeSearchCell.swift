@@ -34,7 +34,7 @@ extension RecipeSearchCell {
         iconImageView.clipsToBounds = true
     }
     
-    func fillWithModel(_ model: FindRecipeModel) {
+    func fillWithModel(_ model: RecipeSearchModel) {
         iconImageView.setImageWithURL(model.imageURL)
         recipeTitleLabel.text = model.title
     }

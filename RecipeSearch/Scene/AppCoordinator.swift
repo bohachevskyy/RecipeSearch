@@ -38,7 +38,7 @@ extension AppCoordinator {
         }
     }
     
-    func showDetailView(recipe: FindRecipeModel) {
+    func showDetailView(recipe: RecipeSearchModel) {
         let view = modulesFactory.makeRecipeDetailView(recipe: recipe)
         router.push(view)
         

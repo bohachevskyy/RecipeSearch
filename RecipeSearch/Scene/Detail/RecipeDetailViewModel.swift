@@ -10,7 +10,7 @@ import Foundation
 
 final class RecipeDetailViewModel {
     var isLoading: Bool = false
-    let searchModel: FindRecipeModel
+    let searchModel: RecipeSearchModel
     let service: RecipeService
     var ingredients: [String] = []
     var shouldShowSkeletonIngredients: Bool {
@@ -20,7 +20,7 @@ final class RecipeDetailViewModel {
     var onIngredientsUpdate: CompletionBlock?
     var onOpenExternalResource: ((String) -> ())?
     
-    init(searchModel: FindRecipeModel, service: RecipeService) {
+    init(searchModel: RecipeSearchModel, service: RecipeService) {
         self.searchModel = searchModel
         self.service = service
         loadFullModel()

@@ -11,6 +11,6 @@ import SafariServices
 
 protocol MainModulesFactory {
     func makeRecipeSearchView() -> RecipeSearchViewController
-    func makeRecipeDetailView(recipe: FindRecipeModel) -> RecipeDetailViewController
+    func makeRecipeDetailView(recipe: RecipeSearchModel) -> RecipeDetailViewController
     func makeSafariView(url: URL) -> SFSafariViewController
 }

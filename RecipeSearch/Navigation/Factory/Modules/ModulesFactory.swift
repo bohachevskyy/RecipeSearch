@@ -18,7 +18,7 @@ extension ModulesFactory: MainModulesFactory {
         return RecipeSearchViewController.loadFromStoryboard(with: viewModel)
     }
     
-    func makeRecipeDetailView(recipe: FindRecipeModel) -> RecipeDetailViewController {
+    func makeRecipeDetailView(recipe: RecipeSearchModel) -> RecipeDetailViewController {
         let viewModel = RecipeDetailViewModel(searchModel: recipe, service: RecipeServiceImpl())
         return RecipeDetailViewController.loadFromStoryboard(with: viewModel)
     }

@@ -10,5 +10,5 @@ import Foundation
 
 struct FindRecipeResponse: Codable {
     let count: Int
-    let recipes: [FindRecipeModel]
+    let recipes: [RecipeSearchModel]
 }
