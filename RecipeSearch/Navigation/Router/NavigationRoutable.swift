@@ -24,4 +24,6 @@ protocol NavigationRoutable: Presentable {
     
     func dismissModule()
     func dismissModule(animated: Bool, completion: CompletionBlock?)
+    
+    func cleanStack()
 }

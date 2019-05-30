@@ -39,6 +39,7 @@ final class RecipeSearchViewModel {
     var onSelection: ((RecipeSearchModel) -> ())?
     var onError: ((String) -> ())?
     var onStateChange: ((State) -> ())?
+    var onCancel: CompletionBlock?
     
     init(searchService: RecipeService) {
         self.searchService = searchService
@@ -75,6 +76,11 @@ extension RecipeSearchViewModel {
             
             self?.isLoading = false
         }
+    }
+    
+    func didTapCancel() {
+        didSearch(with: nil)
+        onCancel?()
     }
     
     func didScrollToBottom() {

@@ -13,7 +13,15 @@ class AppCoordinator: Coordinatable {
     let modulesFactory: MainModulesFactory & MiscModulesFactory
     
     lazy var navigationController: UINavigationController = UINavigationController()
-    lazy var router: NavigationRoutable = NavigationRouter(rootController: navigationController)
+    lazy var splitController: UISplitViewController = UISplitViewController()
+    
+    lazy var router: NavigationRoutable = {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return SplitRouter(rootController: splitController)
+        } else {
+            return NavigationRouter(rootController: navigationController)
+        }
+    }()
     
     init(window: UIWindow, modulesFactory: MainModulesFactory & MiscModulesFactory) {
         self.window = window
@@ -35,6 +43,12 @@ extension AppCoordinator {
         
         view.viewModel.onSelection = { [weak self] (recipe) in
             self?.showDetailView(recipe: recipe)
+        }
+        
+        view.viewModel.onCancel = { [weak self] in
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                self?.router.cleanStack()
+            }
         }
     }
     

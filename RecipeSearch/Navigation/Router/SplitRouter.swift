@@ -1,5 +1,5 @@
 //
-//  NavigationRouter.swift
+//  SplitRouter.swift
 //  RecipeSearch
 //
 //  Created by Mark Vasiv on 30/05/2019.
@@ -8,12 +8,16 @@
 
 import UIKit
 
-final class NavigationRouter: NSObject {
-    fileprivate weak var rootController: UINavigationController?
+final class SplitRouter: NSObject {
+    fileprivate weak var rootController: UISplitViewController?
+    lazy var primaryController: UINavigationController = UINavigationController()
+    lazy var secondaryController: UINavigationController = UINavigationController()
     
-    init(rootController: UINavigationController) {
+    init(rootController: UISplitViewController) {
         self.rootController = rootController
         super.init()
+        self.rootController?.preferredDisplayMode = .allVisible
+        self.rootController?.viewControllers = [primaryController, secondaryController]
     }
     
     var toPresent: UIViewController? {
@@ -22,14 +26,14 @@ final class NavigationRouter: NSObject {
 }
 
 // MARK:- Routable
-extension NavigationRouter: NavigationRoutable {
+extension SplitRouter: NavigationRoutable {
     func setRootModule(_ module: Presentable?) {
         setRootModule(module, animated: false)
     }
     
     func setRootModule(_ module: Presentable?, animated: Bool) {
         guard let controller = module?.toPresent else { return }
-        rootController?.setViewControllers([controller], animated: animated)
+        primaryController.setViewControllers([controller], animated: animated)
     }
     
     func push(_ module: Presentable?)  {
@@ -38,7 +42,7 @@ extension NavigationRouter: NavigationRoutable {
     
     func push(_ module: Presentable?, animated: Bool)  {
         guard let controller = module?.toPresent else { return }
-        rootController?.pushViewController(controller, animated: animated)
+        secondaryController.setViewControllers([controller], animated: animated)
     }
     
     func popModule()  {
@@ -46,11 +50,11 @@ extension NavigationRouter: NavigationRoutable {
     }
     
     func popModule(animated: Bool)  {
-        rootController?.popViewController(animated: animated)
+        secondaryController.popViewController(animated: animated)
     }
     
     func popToRootModule(animated: Bool) {
-        rootController?.popToRootViewController(animated: animated)
+        secondaryController.popToRootViewController(animated: animated)
     }
     
     func present(_ module: Presentable?) {
@@ -71,7 +75,7 @@ extension NavigationRouter: NavigationRoutable {
     }
     
     func cleanStack() {
-        rootController?.viewControllers = []
+        secondaryController.viewControllers = []
     }
 }
 

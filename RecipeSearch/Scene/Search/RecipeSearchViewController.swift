@@ -15,6 +15,7 @@ final class RecipeSearchViewController: UIViewController, StoryboardLoadable {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var tableViewBottom: NSLayoutConstraint!
+    
     lazy var searchController: UISearchController = UISearchController(searchResultsController: nil)
     lazy var emptyView: EmptyView = EmptyView.loadFromXib()!
     
@@ -56,14 +57,12 @@ extension RecipeSearchViewController {
 extension RecipeSearchViewController {
     func setupSearchController() {
         searchController.dimsBackgroundDuringPresentation = false
-        //navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
     }
     
     func setupAppearance() {
         definesPresentationContext = true
-        //extendedLayoutIncludesOpaqueBars = true
         tableView.tableFooterView = UIView()
     }
     
@@ -74,7 +73,7 @@ extension RecipeSearchViewController {
         emptyView.translatesAutoresizingMaskIntoConstraints = false
         emptyView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         emptyView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        emptyView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        emptyView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive =  true
         emptyView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     }
     
@@ -117,7 +116,7 @@ extension RecipeSearchViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.didSearch(with: nil)
+        viewModel.didTapCancel()
     }
 }
 
@@ -166,7 +165,9 @@ extension RecipeSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRow(at: indexPath)
-        tableView.deselectRow(at: indexPath, animated: true)
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 
