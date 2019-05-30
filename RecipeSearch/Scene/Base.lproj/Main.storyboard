@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recipe Search View Controller-->
+        <scene sceneID="7uc-jc-ty3">
+            <objects>
+                <viewController storyboardIdentifier="RecipeSearchViewController" id="xzX-W4-wVX" customClass="RecipeSearchViewController" customModule="RecipeSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B8p-Ka-elQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O0U-Xf-zGO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeSearchCell" rowHeight="60" id="ZNL-iK-KRR" customClass="RecipeSearchCell" customModule="RecipeSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZNL-iK-KRR" id="cUv-Lg-6A3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yLy-W5-w1U" customClass="LoadingImageView" customModule="RecipeSearch" customModuleProvider="target">
+                                                    <rect key="frame" x="12" y="10" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="TMi-Kq-L6f"/>
+                                                        <constraint firstAttribute="width" constant="40" id="eSM-ZA-3bz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPH-ea-Qns">
+                                                    <rect key="frame" x="64" y="19.5" width="318" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UPH-ea-Qns" firstAttribute="centerY" secondItem="cUv-Lg-6A3" secondAttribute="centerY" id="AiI-KF-nIP"/>
+                                                <constraint firstItem="yLy-W5-w1U" firstAttribute="centerY" secondItem="cUv-Lg-6A3" secondAttribute="centerY" id="b2O-Za-pAF"/>
+                                                <constraint firstItem="UPH-ea-Qns" firstAttribute="leading" secondItem="yLy-W5-w1U" secondAttribute="trailing" constant="12" id="ha4-UU-Zwf"/>
+                                                <constraint firstItem="yLy-W5-w1U" firstAttribute="leading" secondItem="cUv-Lg-6A3" secondAttribute="leading" constant="12" id="jMx-dn-L3S"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UPH-ea-Qns" secondAttribute="trailing" constant="12" id="pWc-hE-UuH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="yLy-W5-w1U" id="yKv-ib-ciT"/>
+                                            <outlet property="recipeTitleLabel" destination="UPH-ea-Qns" id="6YQ-2t-Ywp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecipeSearchSkeletonCell" id="aJJ-Az-de4" customClass="RecipeSearchSkeletonCell" customModule="RecipeSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJJ-Az-de4" id="ZQF-3Z-5pu">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMS-sb-0KJ" customClass="GradientView" customModule="RecipeSearch" customModuleProvider="target">
+                                                    <rect key="frame" x="12" y="10" width="40" height="40"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="2Sx-oV-wKQ"/>
+                                                        <constraint firstAttribute="height" constant="40" id="T9s-XP-0GW"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ei3-1c-EEV" customClass="GradientView" customModule="RecipeSearch" customModuleProvider="target">
+                                                    <rect key="frame" x="64" y="19.5" width="250" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="5zK-0K-zzY"/>
+                                                        <constraint firstAttribute="width" constant="250" id="eQH-Gp-v97"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ei3-1c-EEV" firstAttribute="leading" secondItem="uMS-sb-0KJ" secondAttribute="trailing" constant="12" id="5TY-Cc-FLP"/>
+                                                <constraint firstItem="uMS-sb-0KJ" firstAttribute="centerY" secondItem="ZQF-3Z-5pu" secondAttribute="centerY" id="Cw0-mS-cB9"/>
+                                                <constraint firstItem="uMS-sb-0KJ" firstAttribute="leading" secondItem="ZQF-3Z-5pu" secondAttribute="leading" constant="12" id="TDZ-Uy-ftF"/>
+                                                <constraint firstItem="Ei3-1c-EEV" firstAttribute="centerY" secondItem="ZQF-3Z-5pu" secondAttribute="centerY" id="Wow-se-Ym2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageGradientView" destination="uMS-sb-0KJ" id="PK1-xS-s8Q"/>
+                                            <outlet property="labelGradientView" destination="Ei3-1c-EEV" id="bpH-Fj-THU"/>
+                                            <outlet property="labelWidthConstraint" destination="eQH-Gp-v97" id="GKW-ZG-L45"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xzX-W4-wVX" id="Lsf-R7-mSD"/>
+                                    <outlet property="delegate" destination="xzX-W4-wVX" id="zqC-KD-gM9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wak-oQ-hlB" firstAttribute="trailing" secondItem="O0U-Xf-zGO" secondAttribute="trailing" id="IUd-eV-6bU"/>
+                            <constraint firstItem="O0U-Xf-zGO" firstAttribute="leading" secondItem="Wak-oQ-hlB" secondAttribute="leading" id="meK-bc-vBm"/>
+                            <constraint firstAttribute="bottom" secondItem="O0U-Xf-zGO" secondAttribute="bottom" id="wrZ-YE-z2U"/>
+                            <constraint firstItem="O0U-Xf-zGO" firstAttribute="top" secondItem="B8p-Ka-elQ" secondAttribute="top" id="zsx-KJ-2ii"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wak-oQ-hlB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ifr-8U-3jx"/>
+                    <connections>
+                        <outlet property="tableView" destination="O0U-Xf-zGO" id="Ba2-WV-JhS"/>
+                        <outlet property="tableViewBottom" destination="wrZ-YE-z2U" id="dmw-Gq-vXD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vsV-kx-8nN" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-690.39999999999998" y="-253.2233883058471"/>
+        </scene>
+    </scenes>
+</document>
