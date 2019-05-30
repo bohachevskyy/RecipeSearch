@@ -9,37 +9,26 @@
 import Foundation
 
 final class RecipeSearchViewModel {
-    enum State {
-        case empty
-        case loading
-        case data(recepies: [RecipeSearchModel])
-        
-        var data: [RecipeSearchModel] {
-            switch self {
-            case .data(let recepies):
-                return recepies
-            default:
-                return []
-            }
-        }
-    }
+    typealias State = ViewModeState<[RecipeSearchModel]>
     
     var state: State = .empty {
-        didSet {
-            onStateChange?(state)
-        }
+        didSet { onStateChange?(state) }
     }
-    var currentPage: Int = 1
-    var currentText: String? = nil
-    var isLoading: Bool = false
-    var gotAllPages: Bool = false
     
-    let searchService: RecipeService
+    // MARK: Internal properties
+    private var currentPage: Int = 0
+    private var currentText: String? = nil
+    private var isLoading: Bool = false
+    private var gotAllPages: Bool = false
     
+    // MARK: Callbacks
     var onSelection: ((RecipeSearchModel) -> ())?
     var onError: ((String) -> ())?
     var onStateChange: ((State) -> ())?
     var onCancel: CompletionBlock?
+    
+    // MARK: Lifecycle
+    let searchService: RecipeService
     
     init(searchService: RecipeService) {
         self.searchService = searchService
@@ -49,33 +38,22 @@ final class RecipeSearchViewModel {
 // MARK: - User Actions
 extension RecipeSearchViewModel {
     func didSearch(with text: String?) {
+        currentText = text
+        
         guard let text = text, !text.isEmpty else {
             state = .empty
             isLoading = false
-            currentPage = 1
+            currentPage = 0
             return
         }
         
-        state = .loading
-        isLoading = true
-        currentPage = 1
-        gotAllPages = false
-        currentText = text
-        
-        searchService.findRecipe(keyword: text, page: 1) { [weak self] (result) in
-            switch result {
-            case .failure(let error):
-                self?.state = .empty
-                self?.onError?(error.localizedDescription)
-            case .success(let recipes):
-                self?.state = .data(recepies: recipes)
-                if recipes.count < 30 {
-                    self?.gotAllPages = true
-                }
-            }
-            
-            self?.isLoading = false
-        }
+        search(nextPage: false, text: text)
+    }
+    
+    func didScrollToBottom() {
+        guard let text = currentText, !text.isEmpty else { return }
+        guard gotAllPages == false else { return }
+        search(nextPage: true, text: text)
     }
     
     func didTapCancel() {
@@ -83,20 +61,51 @@ extension RecipeSearchViewModel {
         onCancel?()
     }
     
-    func didScrollToBottom() {
-        guard let text = currentText, !text.isEmpty else { return }
+    func didSelectRow(at indexPath: IndexPath) {
+        guard state.data?.count ?? 0 > indexPath.row else { return }
+        guard let model = state.data?[indexPath.row] else { return }
+        onSelection?(model)
+    }
+}
+
+// MARK: - Search
+private extension RecipeSearchViewModel {
+    func search(nextPage: Bool, text: String) {
         guard isLoading == false else { return }
-        guard gotAllPages == false else { return }
         
         isLoading = true
+        
+        if state == .empty {
+            state = .loading
+        }
+        
+        if !nextPage {
+            currentPage = 0
+            gotAllPages = false
+        }
         
         searchService.findRecipe(keyword: text, page: currentPage + 1) { [weak self] (result) in
             switch result {
             case .failure(let error):
+                if !nextPage {
+                    self?.state = .empty
+                }
                 self?.onError?(error.localizedDescription)
             case .success(let recipes):
-                self?.state = .data(recepies: (self?.state.data ?? []) + recipes)
+                guard let text = self?.currentText, !text.isEmpty else {
+                    self?.state = .empty
+                    break
+                }
+                
+                if nextPage {
+                    let currentData = self?.state.data ?? []
+                    self?.state = .withData(data: currentData + recipes)
+                } else {
+                    self?.state = .withData(data: recipes)
+                }
+                
                 self?.currentPage += 1
+                
                 if recipes.count < 30 {
                     self?.gotAllPages = true
                 }
@@ -104,11 +113,5 @@ extension RecipeSearchViewModel {
             
             self?.isLoading = false
         }
-    }
-    
-    func didSelectRow(at indexPath: IndexPath) {
-        guard state.data.count > indexPath.row else { return }
-        let model = state.data[indexPath.row]
-        onSelection?(model)
     }
 }

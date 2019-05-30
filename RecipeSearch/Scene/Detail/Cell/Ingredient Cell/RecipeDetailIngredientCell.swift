@@ -14,6 +14,6 @@ final class RecipeDetailIngredientCell: UITableViewCell, ReusableCell {
     func fillWithIngredientName(_ name: String) {
         // This may be too expensive to do in a table view cell
         // But unfortunately API returns HTML symbols inside of JSON
-        ingredientNameLabel.text = name.stringByDecodingHTML() ?? name
+        ingredientNameLabel.text = name.stringByDecodingHTML()
     }
 }

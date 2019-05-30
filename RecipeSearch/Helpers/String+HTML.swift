@@ -9,9 +9,9 @@
 import Foundation
 
 extension String {
-    func stringByDecodingHTML() -> String? {
+    func stringByDecodingHTML() -> String {
         guard let data = self.data(using: .utf8) else {
-            return nil
+            return self
         }
         
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
@@ -20,7 +20,7 @@ extension String {
         ]
         
         guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
-            return nil
+            return self
         }
         
         return attributedString.string

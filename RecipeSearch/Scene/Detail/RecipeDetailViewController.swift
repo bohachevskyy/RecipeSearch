@@ -43,17 +43,23 @@ extension RecipeDetailViewController {
     }
     
     func bindViewModel() {
-        let model = viewModel.searchModel
-        title = model.title
-        headerImageView.setImageWithURL(model.imageURL)
+        title = viewModel.title
+        headerImageView.setImageWithURL(viewModel.imageURL)
         
         viewModel.onError = { [weak self] (error) in
             self?.showError(error)
         }
         
-        viewModel.onIngredientsUpdate = { [weak self] in
-            self?.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        viewModel.onStateUpdate = { [weak self] (state) in
+            self?.handleStateUpdate(state: state)
         }
+    }
+}
+
+// MARK: - Update
+extension RecipeDetailViewController {
+    func handleStateUpdate(state: ViewModelType.State) {
+        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
 }
 
@@ -73,10 +79,10 @@ extension RecipeDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            if viewModel.shouldShowSkeletonIngredients {
+            if viewModel.state == .loading {
                 return RecipeDetailIngredientSkeletonCell.defaultCellCount
             } else {
-                return viewModel.ingredients.count
+                return viewModel.state.data?.count ?? 0
             }
         } else {
             return 1
@@ -87,7 +93,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
         let cell: UITableViewCell
         
         if indexPath.section == 0 {
-            if viewModel.shouldShowSkeletonIngredients {
+            if viewModel.state == .loading {
                 cell = tableView.dequeueReusableCell(withIdentifier: RecipeDetailIngredientSkeletonCell.reuseId, for: indexPath)
             } else {
                 cell =  tableView.dequeueReusableCell(withIdentifier: RecipeDetailIngredientCell.reuseId, for: indexPath)
@@ -123,8 +129,9 @@ extension RecipeDetailViewController {
     }
     
     func prepareIngredientCell(_ cell: RecipeDetailIngredientCell, forRowAt indexPath: IndexPath) {
-        guard viewModel.ingredients.count > indexPath.row else { return }
-        cell.fillWithIngredientName(viewModel.ingredients[indexPath.row])
+        guard viewModel.state.data?.count ?? 0 > indexPath.row else { return }
+        guard let model = viewModel.state.data?[indexPath.row] else { return }
+        cell.fillWithIngredientName(model)
     }
     
     func prepareIngredientSkeletonCell(_ cell: RecipeDetailIngredientSkeletonCell, forRowAt indexPath: IndexPath) {

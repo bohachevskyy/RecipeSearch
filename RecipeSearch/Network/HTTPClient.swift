@@ -34,6 +34,8 @@ final class HTTPClient {
                 } else if let data = data {
                     if let responseObject = try? JSONDecoder().decode(T.self, from: data) {
                         result = .success(responseObject)
+                    } else if let responseString = String(data: data, encoding: .utf8) {
+                        result = .failure(NetworkError.serverError(description: responseString))
                     } else {
                         result = .failure(NetworkError.decodingFailed)
                     }

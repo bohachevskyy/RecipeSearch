@@ -99,7 +99,7 @@ extension RecipeSearchViewController {
         case .loading:
             emptyView.isHidden = true
             tableView.isHidden = false
-        case .data(let recepies):
+        case .withData(let recepies):
             emptyView.setNoDataAppearance()
             emptyView.isHidden = !recepies.isEmpty
             tableView.isHidden = recepies.isEmpty
@@ -124,7 +124,7 @@ extension RecipeSearchViewController: UISearchBarDelegate {
 extension RecipeSearchViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch viewModel.state {
-        case .data(let recepies):
+        case .withData(let recepies):
             return recepies.count
         case .empty:
             return 0
@@ -135,7 +135,7 @@ extension RecipeSearchViewController: UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch viewModel.state {
-        case .data(_):
+        case .withData(_):
             return tableView.dequeueReusableCell(withIdentifier: RecipeSearchCell.reuseId, for: indexPath)
         default:
             return tableView.dequeueReusableCell(withIdentifier: RecipeSearchSkeletonCell.reuseId, for: indexPath)
@@ -158,9 +158,9 @@ extension RecipeSearchViewController: UITableViewDelegate {
     }
     
     func willDisplayNormalCell(_ cell: RecipeSearchCell, forRowAt indexPath: IndexPath) {
-        guard viewModel.state.data.count > indexPath.row else { return }
-        let model = viewModel.state.data[indexPath.row]
-        cell.fillWithModel(model)
+        guard viewModel.state.data?.count ?? 0 > indexPath.row else { return }
+        guard let model = viewModel.state.data?[indexPath.row] else { return }
+        cell.fillWithModel(RecipeSearchCellModel(searchModel: model))
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
