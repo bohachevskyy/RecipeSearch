@@ -149,15 +149,13 @@
 			isa = PBXGroup;
 			children = (
 				CD0E790A22A02DC7004140E6 /* AppDelegate.swift */,
-				CD0E796D22A03589004140E6 /* UI Components */,
-				CD0E794422A032BE004140E6 /* Navigation */,
+				CD0E791C22A02EDD004140E6 /* Helpers */,
 				CD0E793122A03022004140E6 /* Model */,
 				CD0E791F22A02F0D004140E6 /* Network */,
-				CD0E791C22A02EDD004140E6 /* Helpers */,
+				CD0E794422A032BE004140E6 /* Navigation */,
+				CD0E796D22A03589004140E6 /* UI Components */,
 				CD0E795922A03439004140E6 /* Scene */,
-				CD0E791122A02DC8004140E6 /* Assets.xcassets */,
-				CD0E791322A02DC8004140E6 /* LaunchScreen.storyboard */,
-				CD0E791622A02DC8004140E6 /* Info.plist */,
+				CD0E799122A03E4F004140E6 /* Resources */,
 			);
 			path = RecipeSearch;
 			sourceTree = "<group>";
@@ -296,10 +294,10 @@
 		CD0E795922A03439004140E6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				CD0E798D22A038A2004140E6 /* AppCoordinator.swift */,
+				CD0E790E22A02DC7004140E6 /* Main.storyboard */,
 				CD0E795A22A03451004140E6 /* Search */,
 				CD0E797D22A03708004140E6 /* Detail */,
-				CD0E790E22A02DC7004140E6 /* Main.storyboard */,
-				CD0E798D22A038A2004140E6 /* AppCoordinator.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -379,6 +377,16 @@
 				CD0E798922A0379C004140E6 /* RecipeDetailSectionHeader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CD0E799122A03E4F004140E6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD0E791122A02DC8004140E6 /* Assets.xcassets */,
+				CD0E791322A02DC8004140E6 /* LaunchScreen.storyboard */,
+				CD0E791622A02DC8004140E6 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
