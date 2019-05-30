@@ -50,6 +50,13 @@
 		CD0E797822A0360E004140E6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E797722A0360E004140E6 /* GradientView.swift */; };
 		CD0E797A22A03620004140E6 /* GradientTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E797922A03620004140E6 /* GradientTransition.swift */; };
 		CD0E797C22A03632004140E6 /* CAGradientLayer+Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E797B22A03632004140E6 /* CAGradientLayer+Skeleton.swift */; };
+		CD0E797F22A03717004140E6 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E797E22A03717004140E6 /* RecipeDetailViewModel.swift */; };
+		CD0E798122A03755004140E6 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798022A03755004140E6 /* RecipeDetailViewController.swift */; };
+		CD0E798422A03770004140E6 /* RecipeDetailIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798322A03770004140E6 /* RecipeDetailIngredientCell.swift */; };
+		CD0E798622A0377D004140E6 /* RecipeDetailIngredientSkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798522A0377D004140E6 /* RecipeDetailIngredientSkeletonCell.swift */; };
+		CD0E798822A0378D004140E6 /* RecipeDetailFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798722A0378D004140E6 /* RecipeDetailFooterCell.swift */; };
+		CD0E798A22A0379C004140E6 /* RecipeDetailSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798922A0379C004140E6 /* RecipeDetailSectionHeader.swift */; };
+		CD0E798C22A037E0004140E6 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798B22A037E0004140E6 /* String+HTML.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +105,13 @@
 		CD0E797722A0360E004140E6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		CD0E797922A03620004140E6 /* GradientTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTransition.swift; sourceTree = "<group>"; };
 		CD0E797B22A03632004140E6 /* CAGradientLayer+Skeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Skeleton.swift"; sourceTree = "<group>"; };
+		CD0E797E22A03717004140E6 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
+		CD0E798022A03755004140E6 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		CD0E798322A03770004140E6 /* RecipeDetailIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailIngredientCell.swift; sourceTree = "<group>"; };
+		CD0E798522A0377D004140E6 /* RecipeDetailIngredientSkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailIngredientSkeletonCell.swift; sourceTree = "<group>"; };
+		CD0E798722A0378D004140E6 /* RecipeDetailFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailFooterCell.swift; sourceTree = "<group>"; };
+		CD0E798922A0379C004140E6 /* RecipeDetailSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailSectionHeader.swift; sourceTree = "<group>"; };
+		CD0E798B22A037E0004140E6 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,7 @@
 				CD0E796722A034E8004140E6 /* KeyboardAppearanceProtocol.swift */,
 				CD0E796922A034FE004140E6 /* ReusableCell.swift */,
 				CD0E796B22A0350C004140E6 /* UIScrollView+ScrollPosition.swift */,
+				CD0E798B22A037E0004140E6 /* String+HTML.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -277,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CD0E795A22A03451004140E6 /* Search */,
+				CD0E797D22A03708004140E6 /* Detail */,
 				CD0E790E22A02DC7004140E6 /* Main.storyboard */,
 			);
 			path = Scene;
@@ -336,6 +352,27 @@
 				CD0E797B22A03632004140E6 /* CAGradientLayer+Skeleton.swift */,
 			);
 			path = Skeleton;
+			sourceTree = "<group>";
+		};
+		CD0E797D22A03708004140E6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CD0E797E22A03717004140E6 /* RecipeDetailViewModel.swift */,
+				CD0E798022A03755004140E6 /* RecipeDetailViewController.swift */,
+				CD0E798222A0376A004140E6 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		CD0E798222A0376A004140E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD0E798322A03770004140E6 /* RecipeDetailIngredientCell.swift */,
+				CD0E798522A0377D004140E6 /* RecipeDetailIngredientSkeletonCell.swift */,
+				CD0E798722A0378D004140E6 /* RecipeDetailFooterCell.swift */,
+				CD0E798922A0379C004140E6 /* RecipeDetailSectionHeader.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +451,7 @@
 				CD0E792E22A02FC4004140E6 /* NetworkRoutable.swift in Sources */,
 				CD0E793722A030C0004140E6 /* FindRecipeModel.swift in Sources */,
 				CD0E793322A03050004140E6 /* FindRecipeResponse.swift in Sources */,
+				CD0E798422A03770004140E6 /* RecipeDetailIngredientCell.swift in Sources */,
 				CD0E797C22A03632004140E6 /* CAGradientLayer+Skeleton.swift in Sources */,
 				CD0E795C22A03465004140E6 /* RecipeSearchViewModel.swift in Sources */,
 				CD0E793522A03067004140E6 /* GetRecipeDetailResponse.swift in Sources */,
@@ -422,17 +460,23 @@
 				CD0E792B22A02F72004140E6 /* URLParameterEncoder.swift in Sources */,
 				CD0E795022A03357004140E6 /* CoordinatorFactoryProtocol.swift in Sources */,
 				CD0E792722A02F51004140E6 /* ParameterEncoding.swift in Sources */,
+				CD0E798822A0378D004140E6 /* RecipeDetailFooterCell.swift in Sources */,
+				CD0E798622A0377D004140E6 /* RecipeDetailIngredientSkeletonCell.swift in Sources */,
 				CD0E796222A034B4004140E6 /* RecipeSearchSkeletonCell.swift in Sources */,
+				CD0E797F22A03717004140E6 /* RecipeDetailViewModel.swift in Sources */,
 				CD0E792122A02F18004140E6 /* URLRequestCovertible.swift in Sources */,
 				CD0E794622A032C9004140E6 /* Coordinatable.swift in Sources */,
 				CD0E796022A03496004140E6 /* RecipeSearchCell.swift in Sources */,
 				CD0E794B22A032F4004140E6 /* NavigationRoutable.swift in Sources */,
+				CD0E798C22A037E0004140E6 /* String+HTML.swift in Sources */,
 				CD0E797822A0360E004140E6 /* GradientView.swift in Sources */,
 				CD0E793C22A03105004140E6 /* RecipeService.swift in Sources */,
 				CD0E790D22A02DC7004140E6 /* RecipeSearchViewController.swift in Sources */,
+				CD0E798A22A0379C004140E6 /* RecipeDetailSectionHeader.swift in Sources */,
 				CD0E796422A034C8004140E6 /* StoryboardLoadable.swift in Sources */,
 				CD0E793922A030C9004140E6 /* RecipeDetailModel.swift in Sources */,
 				CD0E796622A034DB004140E6 /* UIViewController+Error.swift in Sources */,
+				CD0E798122A03755004140E6 /* RecipeDetailViewController.swift in Sources */,
 				CD0E790B22A02DC7004140E6 /* AppDelegate.swift in Sources */,
 				CD0E793022A02FF6004140E6 /* HTTPClient.swift in Sources */,
 				CD0E794822A032D7004140E6 /* Presentable.swift in Sources */,
