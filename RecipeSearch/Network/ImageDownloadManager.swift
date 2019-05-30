@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mark Vasiv. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ImageDownloadManager {
     static private var imageCache: NSCache<NSString, UIImage> = NSCache()
