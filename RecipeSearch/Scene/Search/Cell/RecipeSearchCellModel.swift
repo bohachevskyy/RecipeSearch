@@ -13,7 +13,7 @@ struct RecipeSearchCellModel {
     let imageURL: String
     
     init(searchModel: RecipeSearchModel) {
-        self.title = searchModel.title
+        self.title = searchModel.title.stringByDecodingHTML()
         self.imageURL = searchModel.imageURL
     }
 }
