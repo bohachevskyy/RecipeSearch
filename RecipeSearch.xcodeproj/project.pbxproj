@@ -57,6 +57,8 @@
 		CD0E798822A0378D004140E6 /* RecipeDetailFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798722A0378D004140E6 /* RecipeDetailFooterCell.swift */; };
 		CD0E798A22A0379C004140E6 /* RecipeDetailSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798922A0379C004140E6 /* RecipeDetailSectionHeader.swift */; };
 		CD0E798C22A037E0004140E6 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798B22A037E0004140E6 /* String+HTML.swift */; };
+		CD0E798E22A038A2004140E6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798D22A038A2004140E6 /* AppCoordinator.swift */; };
+		CD0E799022A038FD004140E6 /* MiscModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E798F22A038FD004140E6 /* MiscModulesFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +114,8 @@
 		CD0E798722A0378D004140E6 /* RecipeDetailFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailFooterCell.swift; sourceTree = "<group>"; };
 		CD0E798922A0379C004140E6 /* RecipeDetailSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailSectionHeader.swift; sourceTree = "<group>"; };
 		CD0E798B22A037E0004140E6 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
+		CD0E798D22A038A2004140E6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		CD0E798F22A038FD004140E6 /* MiscModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscModulesFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				CD0E795322A033AE004140E6 /* MainModulesFactory.swift */,
+				CD0E798F22A038FD004140E6 /* MiscModulesFactory.swift */,
 				CD0E795122A03382004140E6 /* ModulesFactory.swift */,
 			);
 			path = Modules;
@@ -294,6 +299,7 @@
 				CD0E795A22A03451004140E6 /* Search */,
 				CD0E797D22A03708004140E6 /* Detail */,
 				CD0E790E22A02DC7004140E6 /* Main.storyboard */,
+				CD0E798D22A038A2004140E6 /* AppCoordinator.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				CD0E798822A0378D004140E6 /* RecipeDetailFooterCell.swift in Sources */,
 				CD0E798622A0377D004140E6 /* RecipeDetailIngredientSkeletonCell.swift in Sources */,
 				CD0E796222A034B4004140E6 /* RecipeSearchSkeletonCell.swift in Sources */,
+				CD0E798E22A038A2004140E6 /* AppCoordinator.swift in Sources */,
 				CD0E797F22A03717004140E6 /* RecipeDetailViewModel.swift in Sources */,
 				CD0E792122A02F18004140E6 /* URLRequestCovertible.swift in Sources */,
 				CD0E794622A032C9004140E6 /* Coordinatable.swift in Sources */,
@@ -478,6 +485,7 @@
 				CD0E796622A034DB004140E6 /* UIViewController+Error.swift in Sources */,
 				CD0E798122A03755004140E6 /* RecipeDetailViewController.swift in Sources */,
 				CD0E790B22A02DC7004140E6 /* AppDelegate.swift in Sources */,
+				CD0E799022A038FD004140E6 /* MiscModulesFactory.swift in Sources */,
 				CD0E793022A02FF6004140E6 /* HTTPClient.swift in Sources */,
 				CD0E794822A032D7004140E6 /* Presentable.swift in Sources */,
 				CD0E795422A033AE004140E6 /* MainModulesFactory.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  MainModulesFactory.swift
+//  MiscModulesFactory.swift
 //  RecipeSearch
 //
 //  Created by Mark Vasiv on 30/05/2019.
@@ -9,8 +9,6 @@
 import Foundation
 import SafariServices
 
-protocol MainModulesFactory {
-    func makeRecipeSearchView() -> RecipeSearchViewController
-    func makeRecipeDetailView(recipe: FindRecipeModel) -> RecipeDetailViewController
+protocol MiscModulesFactory {
     func makeSafariView(url: URL) -> SFSafariViewController
 }

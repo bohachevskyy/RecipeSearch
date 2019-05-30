@@ -7,9 +7,26 @@
 //
 
 import Foundation
+import SafariServices
 
 final class ModulesFactory { }
 
+// MARK: - MainModulesFactory
 extension ModulesFactory: MainModulesFactory {
+    func makeRecipeSearchView() -> RecipeSearchViewController {
+        let viewModel = RecipeSearchViewModel(searchService: RecipeServiceImpl())
+        return RecipeSearchViewController.loadFromStoryboard(with: viewModel)
+    }
     
+    func makeRecipeDetailView(recipe: FindRecipeModel) -> RecipeDetailViewController {
+        let viewModel = RecipeDetailViewModel(searchModel: recipe, service: RecipeServiceImpl())
+        return RecipeDetailViewController.loadFromStoryboard(with: viewModel)
+    }
+}
+
+// MARK: - MiscModulesFactory
+extension ModulesFactory: MiscModulesFactory {
+    func makeSafariView(url: URL) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
+    }
 }

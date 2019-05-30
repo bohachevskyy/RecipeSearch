@@ -6,9 +6,14 @@
 //  Copyright © 2019 Mark Vasiv. All rights reserved.
 //
 
-import Foundation
-
+import UIKit
 
 final class CoordinatorFactory: CoordinatorFactoryProtocol {
     let modulesFactory = ModulesFactory()
+}
+
+extension CoordinatorFactory {
+    func makeAppCoordinator(window: UIWindow) -> AppCoordinator {
+        return AppCoordinator(window: window, modulesFactory: modulesFactory)
+    }
 }

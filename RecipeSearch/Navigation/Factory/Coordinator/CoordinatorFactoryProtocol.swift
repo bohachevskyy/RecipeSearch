@@ -6,8 +6,8 @@
 //  Copyright © 2019 Mark Vasiv. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol CoordinatorFactoryProtocol {
-    
+    func makeAppCoordinator(window: UIWindow) -> AppCoordinator
 }
