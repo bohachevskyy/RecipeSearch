@@ -20,6 +20,13 @@
 		CD0E792B22A02F72004140E6 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E792A22A02F72004140E6 /* URLParameterEncoder.swift */; };
 		CD0E792E22A02FC4004140E6 /* NetworkRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E792D22A02FC4004140E6 /* NetworkRoutable.swift */; };
 		CD0E793022A02FF6004140E6 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E792F22A02FF6004140E6 /* HTTPClient.swift */; };
+		CD0E793322A03050004140E6 /* FindRecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793222A03050004140E6 /* FindRecipeResponse.swift */; };
+		CD0E793522A03067004140E6 /* GetRecipeDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793422A03067004140E6 /* GetRecipeDetailResponse.swift */; };
+		CD0E793722A030C0004140E6 /* FindRecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793622A030C0004140E6 /* FindRecipeModel.swift */; };
+		CD0E793922A030C9004140E6 /* RecipeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793822A030C9004140E6 /* RecipeDetailModel.swift */; };
+		CD0E793C22A03105004140E6 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793B22A03105004140E6 /* RecipeService.swift */; };
+		CD0E793E22A03129004140E6 /* RecipeServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793D22A03129004140E6 /* RecipeServiceImpl.swift */; };
+		CD0E794022A0313C004140E6 /* RecipeAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793F22A0313C004140E6 /* RecipeAPIRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,13 @@
 		CD0E792A22A02F72004140E6 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		CD0E792D22A02FC4004140E6 /* NetworkRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRoutable.swift; sourceTree = "<group>"; };
 		CD0E792F22A02FF6004140E6 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		CD0E793222A03050004140E6 /* FindRecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRecipeResponse.swift; sourceTree = "<group>"; };
+		CD0E793422A03067004140E6 /* GetRecipeDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipeDetailResponse.swift; sourceTree = "<group>"; };
+		CD0E793622A030C0004140E6 /* FindRecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRecipeModel.swift; sourceTree = "<group>"; };
+		CD0E793822A030C9004140E6 /* RecipeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailModel.swift; sourceTree = "<group>"; };
+		CD0E793B22A03105004140E6 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
+		CD0E793D22A03129004140E6 /* RecipeServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeServiceImpl.swift; sourceTree = "<group>"; };
+		CD0E793F22A0313C004140E6 /* RecipeAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAPIRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +84,7 @@
 		CD0E790922A02DC7004140E6 /* RecipeSearch */ = {
 			isa = PBXGroup;
 			children = (
+				CD0E793122A03022004140E6 /* Model */,
 				CD0E791F22A02F0D004140E6 /* Network */,
 				CD0E791C22A02EDD004140E6 /* Helpers */,
 				CD0E790A22A02DC7004140E6 /* AppDelegate.swift */,
@@ -94,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				CD0E792F22A02FF6004140E6 /* HTTPClient.swift */,
+				CD0E793A22A030EF004140E6 /* RecipeService */,
 				CD0E792C22A02FBE004140E6 /* Router */,
 				CD0E792522A02F46004140E6 /* Encoding */,
 				CD0E792422A02F35004140E6 /* Helpers */,
@@ -124,8 +140,37 @@
 			isa = PBXGroup;
 			children = (
 				CD0E792D22A02FC4004140E6 /* NetworkRoutable.swift */,
+				CD0E793F22A0313C004140E6 /* RecipeAPIRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		CD0E793122A03022004140E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD0E794122A03254004140E6 /* Dto */,
+				CD0E793622A030C0004140E6 /* FindRecipeModel.swift */,
+				CD0E793822A030C9004140E6 /* RecipeDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CD0E793A22A030EF004140E6 /* RecipeService */ = {
+			isa = PBXGroup;
+			children = (
+				CD0E793B22A03105004140E6 /* RecipeService.swift */,
+				CD0E793D22A03129004140E6 /* RecipeServiceImpl.swift */,
+			);
+			path = RecipeService;
+			sourceTree = "<group>";
+		};
+		CD0E794122A03254004140E6 /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				CD0E793222A03050004140E6 /* FindRecipeResponse.swift */,
+				CD0E793422A03067004140E6 /* GetRecipeDetailResponse.swift */,
+			);
+			path = Dto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,13 +245,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD0E792E22A02FC4004140E6 /* NetworkRoutable.swift in Sources */,
+				CD0E793722A030C0004140E6 /* FindRecipeModel.swift in Sources */,
+				CD0E793322A03050004140E6 /* FindRecipeResponse.swift in Sources */,
+				CD0E793522A03067004140E6 /* GetRecipeDetailResponse.swift in Sources */,
 				CD0E792B22A02F72004140E6 /* URLParameterEncoder.swift in Sources */,
 				CD0E792722A02F51004140E6 /* ParameterEncoding.swift in Sources */,
 				CD0E792122A02F18004140E6 /* URLRequestCovertible.swift in Sources */,
+				CD0E793C22A03105004140E6 /* RecipeService.swift in Sources */,
 				CD0E790D22A02DC7004140E6 /* ViewController.swift in Sources */,
+				CD0E793922A030C9004140E6 /* RecipeDetailModel.swift in Sources */,
 				CD0E790B22A02DC7004140E6 /* AppDelegate.swift in Sources */,
 				CD0E793022A02FF6004140E6 /* HTTPClient.swift in Sources */,
 				CD0E791E22A02EEA004140E6 /* Aliases.swift in Sources */,
+				CD0E794022A0313C004140E6 /* RecipeAPIRouter.swift in Sources */,
+				CD0E793E22A03129004140E6 /* RecipeServiceImpl.swift in Sources */,
 				CD0E792922A02F63004140E6 /* JSONParameterEncoder.swift in Sources */,
 				CD0E792322A02F28004140E6 /* NetworkError.swift in Sources */,
 			);
