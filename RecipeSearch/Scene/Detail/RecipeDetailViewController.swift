@@ -20,9 +20,10 @@ final class RecipeDetailViewController: UIViewController, StoryboardLoadable {
     
     let kHeaderHeight: CGFloat = 250
     let kSectionHeaderHeight: CGFloat = 24
-    let kIngredientCellHeight: CGFloat = 40
-    let kFooterCellHeight: CGFloat = 150
-    
+}
+
+// MARK: - View lifecycle
+extension RecipeDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +38,8 @@ extension RecipeDetailViewController {
         tableView.backgroundColor = nil
         tableView.contentInset = UIEdgeInsets(top: kHeaderHeight, left: 0, bottom: 0, right: 0)
         tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 40
     }
     
     func bindViewModel() {
@@ -81,47 +84,33 @@ extension RecipeDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell
+        
         if indexPath.section == 0 {
             if viewModel.shouldShowSkeletonIngredients {
-                return tableView.dequeueReusableCell(withIdentifier: RecipeDetailIngredientSkeletonCell.reuseId, for: indexPath)
+                cell = tableView.dequeueReusableCell(withIdentifier: RecipeDetailIngredientSkeletonCell.reuseId, for: indexPath)
             } else {
-                return tableView.dequeueReusableCell(withIdentifier: RecipeDetailIngredientCell.reuseId, for: indexPath)
+                cell =  tableView.dequeueReusableCell(withIdentifier: RecipeDetailIngredientCell.reuseId, for: indexPath)
             }
         } else {
-            return tableView.dequeueReusableCell(withIdentifier: RecipeDetailFooterCell.reuseId, for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: RecipeDetailFooterCell.reuseId, for: indexPath)
         }
+        
+        if let cell = cell as? RecipeDetailFooterCell {
+            prepareFooterCell(cell, forRowAt: indexPath)
+        } else if let cell = cell as? RecipeDetailIngredientSkeletonCell {
+            prepareIngredientSkeletonCell(cell, forRowAt: indexPath)
+        } else if let cell = cell as? RecipeDetailIngredientCell {
+            prepareIngredientCell(cell, forRowAt: indexPath)
+        }
+        
+        return cell
     }
 }
 
-// MARK: - UITableViewDelegate
-extension RecipeDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return kSectionHeaderHeight
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return kIngredientCellHeight
-        } else {
-            return kFooterCellHeight
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let footerCell = cell as? RecipeDetailFooterCell {
-            willDisplayFooterCell(footerCell, forRowAt: indexPath)
-        } else if let skeletonIngredientCell = cell as? RecipeDetailIngredientSkeletonCell {
-            willDisplayIngredientSkeletonCell(skeletonIngredientCell, forRowAt: indexPath)
-        } else if let ingredientCell = cell as? RecipeDetailIngredientCell {
-            willDisplayIngredientCell(ingredientCell, forRowAt: indexPath)
-        }
-    }
-    
-    func willDisplayFooterCell(_ cell: RecipeDetailFooterCell, forRowAt indexPath: IndexPath) {
+// MARK: - Prepare cells
+extension RecipeDetailViewController {
+    func prepareFooterCell(_ cell: RecipeDetailFooterCell, forRowAt indexPath: IndexPath) {
         cell.fillWithModel(viewModel.searchModel)
         
         cell.onOriginalTap = { [weak self] in
@@ -133,13 +122,24 @@ extension RecipeDetailViewController: UITableViewDelegate {
         }
     }
     
-    func willDisplayIngredientCell(_ cell: RecipeDetailIngredientCell, forRowAt indexPath: IndexPath) {
+    func prepareIngredientCell(_ cell: RecipeDetailIngredientCell, forRowAt indexPath: IndexPath) {
         guard viewModel.ingredients.count > indexPath.row else { return }
         cell.fillWithIngredientName(viewModel.ingredients[indexPath.row])
     }
     
-    func willDisplayIngredientSkeletonCell(_ cell: RecipeDetailIngredientSkeletonCell, forRowAt indexPath: IndexPath) {
+    func prepareIngredientSkeletonCell(_ cell: RecipeDetailIngredientSkeletonCell, forRowAt indexPath: IndexPath) {
         cell.startSliding()
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension RecipeDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return kSectionHeaderHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
 }
 
@@ -153,7 +153,7 @@ extension RecipeDetailViewController: UIScrollViewDelegate {
             headerTop.constant = inset - offset
         } else {
             headerTop.constant = 0
-            headerHeight.constant = 250 + (inset - offset)
+            headerHeight.constant = kHeaderHeight + (inset - offset)
         }
         
         headerImageView.layoutIfNeeded()

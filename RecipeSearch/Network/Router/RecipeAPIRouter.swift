@@ -26,7 +26,7 @@ enum RecipeAPIRouter: NetworkRoutable {
     var httpMethod: String { return "GET" }
     
     var authenticationQueryParameterers: Parameters? {
-        return ["key": "89c02993d2e0332cef8ed69318e73abb"]
+        return ["key": "153381516bb61d238dba7ace88ba3ef5"]
     }
     
     var queryParameters: Parameters? {
