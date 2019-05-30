@@ -27,6 +27,7 @@
 		CD0E793C22A03105004140E6 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793B22A03105004140E6 /* RecipeService.swift */; };
 		CD0E793E22A03129004140E6 /* RecipeServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793D22A03129004140E6 /* RecipeServiceImpl.swift */; };
 		CD0E794022A0313C004140E6 /* RecipeAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E793F22A0313C004140E6 /* RecipeAPIRouter.swift */; };
+		CD0E794322A03285004140E6 /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0E794222A03285004140E6 /* ImageDownloadManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		CD0E793B22A03105004140E6 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
 		CD0E793D22A03129004140E6 /* RecipeServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeServiceImpl.swift; sourceTree = "<group>"; };
 		CD0E793F22A0313C004140E6 /* RecipeAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAPIRouter.swift; sourceTree = "<group>"; };
+		CD0E794222A03285004140E6 /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				CD0E792F22A02FF6004140E6 /* HTTPClient.swift */,
+				CD0E794222A03285004140E6 /* ImageDownloadManager.swift */,
 				CD0E793A22A030EF004140E6 /* RecipeService */,
 				CD0E792C22A02FBE004140E6 /* Router */,
 				CD0E792522A02F46004140E6 /* Encoding */,
@@ -259,6 +262,7 @@
 				CD0E791E22A02EEA004140E6 /* Aliases.swift in Sources */,
 				CD0E794022A0313C004140E6 /* RecipeAPIRouter.swift in Sources */,
 				CD0E793E22A03129004140E6 /* RecipeServiceImpl.swift in Sources */,
+				CD0E794322A03285004140E6 /* ImageDownloadManager.swift in Sources */,
 				CD0E792922A02F63004140E6 /* JSONParameterEncoder.swift in Sources */,
 				CD0E792322A02F28004140E6 /* NetworkError.swift in Sources */,
 			);
