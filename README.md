@@ -1,6 +1,6 @@
 # Overview
 
-This is a coding test. The app is a recipe search app, it has 2 screens - search and detail, and uses food2fork API to get data about recipes. It intentionally doesn't have any dependencies as I've been told it's discouraged to have any
+This is a coding test. The app is a recipe search app, it has 2 screens - search and detail, and uses food2fork API to get data about recipes
 
 | ![iPhone List](https://lh3.googleusercontent.com/7Ug4jXLg5JZj1ScwEmIeX3QrcCHFFNFK6YGbEgPUWVw84Rk4bNnFdfQd3cI3A6BOG97A1Z5W3_PJ=h600) | ![Phone Detail](https://lh3.googleusercontent.com/sC9dCTzEgOFqcY_Nm2uiXw4n6h8u5ohQBOgUO_HFLNuQZN2md2iiZzPBBJW237QvdcUikmrPxo6o=h600) | ![iPad Portrait](https://lh3.googleusercontent.com/rWI2-PkEwQtMYIqvr3TItXBh38r-G-1G_0U5eaK2DtHGjkoFotXWaePrTlbju4gqa4iLKLL6lv2P=h600) | ![iPad Landscape](https://lh3.googleusercontent.com/TX-y1MtslgGemeYZPh2wwts-i4jJYAvYhwWHA6WQTqgi4TavxWCXyZg-wHQPtq2bII1fag1cjAms=h600) |
 |--|--|--|--|
