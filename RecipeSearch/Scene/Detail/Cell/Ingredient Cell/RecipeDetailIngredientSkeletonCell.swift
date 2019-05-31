@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeDetailIngredientSkeletonCell: UITableViewCell, ReusableCell {
+final class RecipeDetailIngredientSkeletonCell: UITableViewCell, ReusableCell {
     static let defaultCellCount: Int = 5
     
     @IBOutlet var labelGradientView: GradientView!
@@ -29,7 +29,7 @@ extension RecipeDetailIngredientSkeletonCell {
 }
 
 // MARK: - Setup
-extension RecipeDetailIngredientSkeletonCell {
+private extension RecipeDetailIngredientSkeletonCell {
     func setupGradientViews() {
         labelWidthConstraint.constant = CGFloat((120...240).randomElement() ?? 120)
         labelGradientView.setDefaultSkeletonColors()

@@ -33,7 +33,7 @@ extension RecipeDetailViewController {
 }
 
 // MARK: - Setup
-extension RecipeDetailViewController {
+private extension RecipeDetailViewController {
     func setupTableView() {
         tableView.backgroundColor = nil
         tableView.contentInset = UIEdgeInsets(top: kHeaderHeight, left: 0, bottom: 0, right: 0)
@@ -57,7 +57,7 @@ extension RecipeDetailViewController {
 }
 
 // MARK: - Update
-extension RecipeDetailViewController {
+private extension RecipeDetailViewController {
     func handleStateUpdate(state: ViewModelType.State) {
         tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
@@ -115,7 +115,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
 }
 
 // MARK: - Prepare cells
-extension RecipeDetailViewController {
+private extension RecipeDetailViewController {
     func prepareFooterCell(_ cell: RecipeDetailFooterCell, forRowAt indexPath: IndexPath) {
         cell.fillWithModel(viewModel.searchModel)
         

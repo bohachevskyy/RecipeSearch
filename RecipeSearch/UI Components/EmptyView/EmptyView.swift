@@ -8,8 +8,7 @@
 
 import UIKit
 
-class EmptyView: UIView {
-    
+final class EmptyView: UIView {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!

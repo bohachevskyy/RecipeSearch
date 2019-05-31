@@ -9,7 +9,7 @@
 import Foundation
 @testable import RecipeSearch
 
-class RecipeServiceMock: RecipeService {
+final class RecipeServiceMock: RecipeService {
     var throwsError: Bool = false
     var returnFullPage: Bool = true
     

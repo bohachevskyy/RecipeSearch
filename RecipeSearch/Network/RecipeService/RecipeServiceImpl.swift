@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RecipeServiceImpl: RecipeService {
+final class RecipeServiceImpl: RecipeService {
     func findRecipe(keyword: String, page: Int, completion: @escaping (Result<[RecipeSearchModel], Error>) -> ()) {
         let mappedCompletion: (Result<FindRecipeResponse, Error>) -> () = { (result) in
             let mappedResult = result.map({ $0.recipes })

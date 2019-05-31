@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeSearchCell: UITableViewCell, ReusableCell {
+final class RecipeSearchCell: UITableViewCell, ReusableCell {
     @IBOutlet var iconImageView: LoadingImageView!
     @IBOutlet var recipeTitleLabel: UILabel!
 }

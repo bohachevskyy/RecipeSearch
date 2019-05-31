@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageDownloadManager {
+final class ImageDownloadManager {
     static private var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     static func downloadImage(url urlString: String, completion: @escaping (Result<UIImage, Error>) -> ()) {

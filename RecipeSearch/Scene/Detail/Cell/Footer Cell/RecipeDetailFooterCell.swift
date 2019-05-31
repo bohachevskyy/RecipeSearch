@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeDetailFooterCell: UITableViewCell, ReusableCell {
+final class RecipeDetailFooterCell: UITableViewCell, ReusableCell {
     @IBOutlet var publisherLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var showInstructionsButton: UIButton!

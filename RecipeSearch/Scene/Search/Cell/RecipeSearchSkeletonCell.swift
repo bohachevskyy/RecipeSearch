@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeSearchSkeletonCell: UITableViewCell, ReusableCell {
+final class RecipeSearchSkeletonCell: UITableViewCell, ReusableCell {
     static let defaultCellCount: Int = 15
     
     @IBOutlet var imageGradientView: GradientView!
@@ -30,7 +30,7 @@ extension RecipeSearchSkeletonCell {
 }
 
 // MARK: - Setup
-extension RecipeSearchSkeletonCell {
+private extension RecipeSearchSkeletonCell {
     func setupGradientViews() {
         imageGradientView.layer.cornerRadius = 5
         imageGradientView.clipsToBounds = true

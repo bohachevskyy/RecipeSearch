@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingImageView: UIImageView {
+final class LoadingImageView: UIImageView {
     lazy var skeletonView: GradientView = GradientView()
     
     override init(frame: CGRect) {

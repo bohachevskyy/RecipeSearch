@@ -9,7 +9,7 @@
 import XCTest
 @testable import RecipeSearch
 
-class RecipeSearchViewModelTests: XCTestCase {
+final class RecipeSearchViewModelTests: XCTestCase {
     
     lazy var service: RecipeServiceMock = RecipeServiceMock()
     

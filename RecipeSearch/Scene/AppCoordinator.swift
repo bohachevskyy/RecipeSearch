@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppCoordinator: Coordinatable {
+final class AppCoordinator: Coordinatable {
     let window: UIWindow
     let modulesFactory: MainModulesFactory & MiscModulesFactory
     

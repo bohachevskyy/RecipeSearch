@@ -54,7 +54,7 @@ extension RecipeSearchViewController {
 }
 
 // MARK: - Setup
-extension RecipeSearchViewController {
+private extension RecipeSearchViewController {
     func setupSearchController() {
         searchController.dimsBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
@@ -89,7 +89,7 @@ extension RecipeSearchViewController {
 }
 
 // MARK: - Update
-extension RecipeSearchViewController {
+private extension RecipeSearchViewController {
     func handleStateUpdate(state: ViewModelType.State) {
         switch state {
         case .empty:
